@@ -21,21 +21,9 @@ public class CityAdapter extends RecyclerView.Adapter<CityViewHolder> {
 
     public ListFragment.ListFragmentInteractionListener listener;
 
-//    private final OnItemClickListener listener = new OnItemClickListener() {
-//        @Override
-//        public void onItemClick(City city) {
-//
-//        }
-//    };
-
     public CityAdapter(List<City> cityList){
         this.cityList = cityList;
     }
-
-//    public CityAdapter(List<City> cityList, OnItemClickListener listener){
-//        this.cityList = cityList;
-//        this.listener = listener;
-//    }
 
     @NonNull
     @Override

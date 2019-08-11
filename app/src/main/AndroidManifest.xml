@@ -30,4 +30,8 @@
             android:value="@integer/google_play_services_version" />
     </application>
 
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
 </manifest>
