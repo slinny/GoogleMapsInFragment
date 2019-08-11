@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class ListFragment extends Fragment implements SearchView.OnQueryTextListener{
 
-    private static OnInputFragmentInteractionListener mListener;
+    private static ListFragmentInteractionListener mListener;
     private View rootView;
     private RecyclerView cityRecyclerview;
     private CityAdapter cityAdapter;
@@ -71,15 +71,15 @@ public class ListFragment extends Fragment implements SearchView.OnQueryTextList
 
     public static void onButtonPressed(City city) {
         if (mListener != null) {
-            mListener.onInputFragmentInteraction(city);
+            mListener.listFragmentInteraction(city);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnInputFragmentInteractionListener) {
-            mListener = (OnInputFragmentInteractionListener) context;
+        if (context instanceof ListFragmentInteractionListener) {
+            mListener = (ListFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnInputFragmentInteractionListener");
@@ -92,8 +92,8 @@ public class ListFragment extends Fragment implements SearchView.OnQueryTextList
         mListener = null;
     }
 
-    public interface OnInputFragmentInteractionListener {
-        void onInputFragmentInteraction(City city);
+    public interface ListFragmentInteractionListener {
+        void listFragmentInteraction(City city);
     }
 
 

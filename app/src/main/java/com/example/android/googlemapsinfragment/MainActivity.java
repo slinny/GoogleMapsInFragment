@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListFragment.ListFragmentInteractionListener{
 
     private CityService cityService;
     private ProgressBar progressBar;
@@ -70,5 +70,14 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public void listFragmentInteraction(City city) {
+        MapFragment mapFragment = MapFragment.newInstance(city.getCoord().getLat(),city.getCoord().getLon(),city.getName(),city.getCountry());
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, mapFragment)
+                .addToBackStack(getResources().getString(R.string.map_fragment)).commit();
     }
 }

@@ -19,7 +19,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityViewHolder> {
     private Context context;
     private ListFragment listFragment;
 
-    public ListFragment.OnInputFragmentInteractionListener listener;
+    public ListFragment.ListFragmentInteractionListener listener;
 
 //    private final OnItemClickListener listener = new OnItemClickListener() {
 //        @Override
