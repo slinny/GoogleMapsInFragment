@@ -19,7 +19,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityViewHolder> {
     private Context context;
     private ListFragment listFragment;
 
-    public ListFragment.ListFragmentInteractionListener listener;
+    public ListFragment.OnInputFragmentInteractionListener listener;
 
     public CityAdapter(List<City> cityList){
         this.cityList = cityList;

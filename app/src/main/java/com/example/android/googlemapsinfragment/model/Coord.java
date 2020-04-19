@@ -1,11 +1,6 @@
 package com.example.android.googlemapsinfragment.model;
 
-import android.support.annotation.NonNull;
-
-import java.io.Serializable;
-
-public class Coord implements Serializable{
-
+public class Coord {
     @com.google.gson.annotations.Expose
     @com.google.gson.annotations.SerializedName("lat")
     private double lat;

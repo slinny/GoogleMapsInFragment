@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
-public abstract class City implements Comparable<City>, Serializable {
+public class City implements Comparable<City>, Serializable {
 
     @com.google.gson.annotations.Expose
     @com.google.gson.annotations.SerializedName("coord")

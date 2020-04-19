@@ -11,3 +11,4 @@ public interface CityService {
     @GET("/joinpursuit/Pursuit-Core-Android-Unit6-CTA-Bank-Locator/master/location.json")
     Call<List<City>> getAllCities();
 }
+

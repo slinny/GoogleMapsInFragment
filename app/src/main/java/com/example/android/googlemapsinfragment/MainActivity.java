@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.android.googlemapsinfragment.model.City;
 import com.example.android.googlemapsinfragment.networking.CityService;
-import com.example.android.googlemapsinfragment.networking.RetrofitCall;
+import com.example.android.googlemapsinfragment.networking.RetrofitService;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements ListFragment.ListFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements ListFragment.OnInputFragmentInteractionListener{
 
     private CityService cityService;
     private ProgressBar progressBar;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
         frameLayout = findViewById(R.id.main_container);
         frameLayout.setVisibility(View.GONE);
 
-        cityService = RetrofitCall.getAllCities();
+        cityService = RetrofitService.getCities();
         progressBar = findViewById(R.id.progress_bar);
 
         cityService.getAllCities().enqueue(new Callback<List<City>>() {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.List
     }
 
     @Override
-    public void listFragmentInteraction(City city) {
+    public void onInputFragmentInteraction(City city) {
         MapFragment mapFragment = MapFragment.newInstance(city.getCoord().getLat(),city.getCoord().getLon(),city.getName(),city.getCountry());
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
